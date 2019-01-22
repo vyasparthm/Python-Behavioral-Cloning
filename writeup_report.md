@@ -8,7 +8,7 @@
 [right_image]: ./examples/right_image.jpg "Sample Right Camera Image: "
 [loss_data]: ./examples/loss.png "Training and Validation Loss Data: "
 
-The intention of this project is to generate and train a model to drive a car by itself in a Udacity Simulator and eventually implementing this as a real world application. I read Jeremy Shannon's [work](https://github.com/jeremy-shannon) on this to understand and implement this project.
+The intention of this project is to generate and train a model to drive a car by itself in a Udacity Simulator and eventually implementing this as a real world application. I read Jeremy Shannon's [work](https://github.com/jeremy-shannon) and Vivek Sharma's [work](https://github.com/vivekmsit) on this to understand and implement this project.
 
 **Behavioral Cloning Project**
 
@@ -54,7 +54,6 @@ The model includes RELU layers to introduce nonlinearity, and the data is normal
 
 The model contains dropout layer after each convolutional layer and some of the Dense layers with dropout rate of 0.1 to reduce overfitting. The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-After 7 epochs, training loss was 0.0379 and validation loss was 0.0330.
 Below figure represents mapping of training and validation loss with number of epochs:
 
 ![alt text][loss_data] 
