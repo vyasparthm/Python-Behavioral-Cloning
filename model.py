@@ -121,7 +121,7 @@ history_object = model.fit_generator(train_generator,
                              epochs=7,
                              steps_per_epoch=len(train_samples) // batch_size,
                              validation_steps=len(validation_samples) // batch_size)
-#loss_data(history_object)
+loss_data(history_object)
 model.save('model.h5')
 print("model saved")
 exit()
