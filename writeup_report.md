@@ -8,7 +8,7 @@
 [right_image]: ./examples/right_image.jpg "Sample Right Camera Image: "
 [loss_data]: ./examples/loss.png "Training and Validation Loss Data: "
 
-The intention of this project is to generate and train a model to drive a car by itself in a Udacity Simulator and eventually implementing this as a real world application. I read Jeremy Shannon's [work](https://github.com/jeremy-shannon) on this to understand and implement this project.
+The intention of this project is to generate and train a model to drive a car by itself in a Udacity Simulator and eventually implementing this as a real world application. I read Jeremy Shannon's [work](https://github.com/jeremy-shannon) and Vivek Sharma's [work](https://github.com/vivekmsithttps://github.com/vivekmsit) on this to understand and implement this project.
 
 **Behavioral Cloning Project**
 
