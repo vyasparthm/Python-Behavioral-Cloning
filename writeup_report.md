@@ -54,7 +54,7 @@ The model looks something like below text:
 
 Check the below model architecture that is representation of the model used in this project and it was created using Keras vis_utils
 
-![alt text] [model]
+![alt text][model]
 
 #### 2. Attempts to reduce overfitting in the model
 
