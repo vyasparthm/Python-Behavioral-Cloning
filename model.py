@@ -4,7 +4,7 @@ import sklearn
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-
+from keras.utils.vis_utils import plot_model
 from keras.models import Sequential, Model
 from keras.layers import Flatten, Dense, Lambda, Cropping2D, Dropout
 from keras.layers.convolutional import Conv2D
@@ -104,6 +104,7 @@ def model():
     model.add(Dense(10))
     model.add(Dense(1))
     model.summary()
+    plot_model(model, to_file='./examples/model_plot.png', show_shapes=True, show_layer_names=True)
     return model
 
 lns = get_samples()

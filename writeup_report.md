@@ -7,6 +7,7 @@
 [left_image]: ./examples/left_image.jpg "Sample Left Camera Image: "
 [right_image]: ./examples/right_image.jpg "Sample Right Camera Image: "
 [loss_data]: ./examples/loss.png "Training and Validation Loss Data: "
+[model]: ./examples/model_plot.png "Implemented Model"
 
 The intention of this project is to generate and train a model to drive a car by itself in a Udacity Simulator and eventually implementing this as a real world application. I read Jeremy Shannon's [work](https://github.com/jeremy-shannon) and Vivek Sharma's [work](https://github.com/vivekmsit) on this to understand and implement this project.
 
@@ -49,18 +50,26 @@ The model.py file contains the code for training and saving the convolution neur
 My model consists of a five convolution neural network layers with 5x5 and 3x3 filter sizes and depths between 24 and 64. 
 
 The model includes RELU layers to introduce nonlinearity, and the data is normalized in the model using a Keras lambda layer. 
+The model looks something like below text:
+
+Check the below model architecture that is representation of the model used in this project and it was created using Keras vis_utils
+
+![alt text] [model]
 
 #### 2. Attempts to reduce overfitting in the model
 
 The model contains dropout layer after each convolutional layer and some of the Dense layers with dropout rate of 0.1 to reduce overfitting. The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-Below figure represents mapping of training and validation loss with number of epochs:
+After 7 epochs, training loss was 0.126 and validation loss was 0.1768. Below figure represents mapping of training and validation loss with number of epochs:
+
 
 ![alt text][loss_data] 
 
+
+
 #### 3. Model parameter tuning
 
-The model used an adam optimizer.
+The model used an adam optimizer, thus the learning rate was not manually tuned.
 
 #### 4. Appropriate training data
 
@@ -99,6 +108,56 @@ The final step was to run the simulator to see how well the car was driving arou
 
 To capture good driving behavior, I drove the car in center lane for the most part, took the car off-road and recovered, intentionally going to the sides of road then braking and recovering.
 
+To augment the data sat, I also flipped images and angles thinking that this would improve the accuracy of the model. I also used left and right camera images for training.
+
+There were 559,419 number of total trainable parameters for the model as shown below:
+### Model representation:
+
+Layer (type)                 Output Shape              Param #   
+================================================================
+lambda_1 (Lambda)            (None, 160, 320, 3)       0         
+_________________________________________________________________
+cropping2d_1 (Cropping2D)    (None, 70, 320, 3)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 33, 158, 24)       1824      
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 33, 158, 24)       0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 15, 77, 36)        21636     
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 15, 77, 36)        0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 6, 37, 48)         43248     
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 6, 37, 48)         0         
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 4, 35, 64)         27712     
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 4, 35, 64)         0         
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 2, 33, 64)         36928     
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 2, 33, 64)         0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 4224)              0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 100)               422500    
+_________________________________________________________________
+dropout_6 (Dropout)          (None, 100)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 50)                5050      
+_________________________________________________________________
+dropout_7 (Dropout)          (None, 50)                0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 10)                510       
+_________________________________________________________________
+
+dense_4 (Dense)              (None, 1)                 11        
+=================================================================
+Total params: 559,419
+Trainable params: 559,419
+Non-trainable params: 0
+
 #### 3.Finally the video
 
-The root directory contains the cod, model and the video that was generated using images in run1 folder.
+The root directory contains the code, model and the video that was generated using images in run1 folder.
